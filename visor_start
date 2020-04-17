@@ -1,0 +1,18 @@
+#!/bin/bash
+# 
+# Description: Simple script for starting the Skywire-Mainnet Visor service
+
+VISOR_CONF=/etc/skywire-visor.json
+PIDFILE=/tmp/run/skywire-visor.pid
+
+	if [ -f $PIDFILE ] && kill -0 $(cat $PIDFILE); then
+		echo 'Visor service is already running'
+		return 1
+	fi
+		echo 'Starting the Visor service…'
+		cd /usr/bin/
+		nohup ./skywire-visor "$VISOR_CONF" > /dev/null 2>&1 &
+		echo $! > "${PIDFILE}"
+	if [ -f $PIDFILE ] && kill -0 $(cat $PIDFILE); then
+		echo 'Visor service is running'
+	fi
