@@ -1,0 +1,14 @@
+#!/bin/bash
+# 
+# Description: Simple script for stopping the Skywire-Mainnet Visor service
+
+VISOR_CONF=/etc/skywire-visor.json
+PIDFILE=/tmp/run/skywire-visor.pid
+
+	if [ ! -f "$PIDFILE" ] || ! kill -0 $(cat "$PIDFILE"); then
+		echo 'Visor service is not running'
+		return 1
+	fi
+		echo 'Stopping the Visor service…'
+		kill -15 $(cat "$PIDFILE") && rm -f "$PIDFILE"
+		echo 'Visor service was stopped'
