@@ -3,6 +3,8 @@ Description=Skywire-Mainnet Visor
 After=network.target
 
 [Service]
+User=root
+Group=root
 WorkingDirectory=/root/skywire-mainnet
 #Environment="GOPATH=/root/go" "GOBIN=$GOPATH/bin"
 ExecStart=/root/skywire-mainnet/hypervisor
