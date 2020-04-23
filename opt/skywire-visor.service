@@ -1,0 +1,15 @@
+[Unit]
+Description=Skywire-Mainnet Visor
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/opt/skywire
+ExecStart=/opt/skywire/skywire-visor /opt/skywire/skywire-config.json
+ExecStop=kill
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
