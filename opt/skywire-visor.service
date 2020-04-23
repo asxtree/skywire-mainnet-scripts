@@ -5,8 +5,8 @@ After=network.target
 [Service]
 User=root
 Group=root
-WorkingDirectory=/opt/skywire
-ExecStart=/opt/skywire/skywire-visor /opt/skywire/skywire-config.json
+WorkingDirectory=/home/pi/opt/skywire
+ExecStart=/home/pi/opt/skywire/skywire-visor /home/pi/opt/skywire/skywire-config.json
 ExecStop=kill
 Restart=on-failure
 RestartSec=10
