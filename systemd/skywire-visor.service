@@ -5,9 +5,9 @@ After=network.target
 [Service]
 User=root
 Group=root
-WorkingDirectory=/root/skywire-mainnet
+WorkingDirectory=/root/skywire
 #Environment="GOPATH=/root/go" "GOBIN=$GOPATH/bin"
-ExecStart=/root/skywire-mainnet/skywire-visor /root/skywire-mainnet/skywire-config.json
+ExecStart=/root/skywire/skywire-visor /root/skywire/skywire-config.json
 ExecStop=kill
 Restart=on-failure
 RestartSec=10
